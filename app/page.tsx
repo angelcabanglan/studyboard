@@ -1,12 +1,11 @@
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black min-h-screen">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center gap-12 py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Welcome to Studyboard
-          </h1>
-        </div>
+    <div className="flex min-h-screen bg-black font-sans text-white">
+      <main className="flex w-full max-w-3xl flex-col items-start justify-start p-16 pt-32 sm:p-24">
+        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+          Welcome to Cabang's <br />
+          StudyBoard.
+        </h1>
       </main>
     </div>
   );
