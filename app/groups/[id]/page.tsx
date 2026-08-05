@@ -1,10 +1,14 @@
 import { getGroupById, getTasksByGroupId } from "@/lib/data";
 import TaskItem from "@/components/TaskItem";
 
-export default function HomePage() {
-  // Kukuha tayo ng default group (Group #1) para lumabas agad sa localhost:3000
-  const group = getGroupById("1");
-  const tasks = getTasksByGroupId("1");
+export default async function GroupDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = await params;
+  const group = getGroupById(resolvedParams.id);
+  const tasks = getTasksByGroupId(resolvedParams.id);
 
   if (!group) {
     return (
@@ -15,7 +19,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="p-6 md:p-10 max-w-2xl mx-auto space-y-6 font-sans">
+    <div className="p-6 md:p-10 max-w-2xl mx-auto space-y-6 font-sans text-white">
       {/* Category Header */}
       <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">
         STUDYBOARD / GROUPS

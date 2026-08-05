@@ -12,17 +12,16 @@ export type Group = {
   tasks: Task[];
 };
 
-// Static mock data — will be replaced by real database queries in Week 5.
-const groups: Group[] = [
+export const groups: Group[] = [
   {
     id: "1",
     name: "Data Structures Study Circle",
-    subject: "Computer Science",
+    subject: "Itelec1",
     memberCount: 5,
     tasks: [
-      { id: "t1", title: "Review binary trees", done: false },
-      { id: "t2", title: "Practice linked list problems", done: true },
-      { id: "t3", title: "Summarize Big-O notation", done: false },
+      { id: "t1", title: "Review Next.js Components & Props", done: false },
+      { id: "t2", title: "Practice Tailwind CSS Styling", done: true },
+      { id: "t3", title: "Complete Itelec1 Hands-on Lab", done: false },
     ],
   },
   {
@@ -53,5 +52,10 @@ export function getGroups(): Group[] {
 }
 
 export function getGroupById(id: string): Group | undefined {
-  return groups.find((group) => group.id === id);
+  return groups.find((group) => String(group.id) === String(id));
+}
+
+export function getTasksByGroupId(groupId: string) {
+  const group = getGroupById(groupId);
+  return group ? group.tasks : [];
 }
